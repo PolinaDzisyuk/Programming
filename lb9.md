@@ -1,0 +1,7 @@
+![alt text](<screenshots/Снимок экрана 2025-11-25 120800.png>)
+![alt text](<screenshots/Снимок экрана 2025-11-25 121101.png>)
+![alt text](<screenshots/Снимок экрана 2025-11-25 121349.png>)
+![alt text](<screenshots/Снимок экрана 2025-11-25 121510.png>)
+![alt text](<screenshots/Снимок экрана 2025-11-25 121637.png>)
+![alt text](<screenshots/Снимок экрана 2025-11-25 121922.png>)
+![alt text](<screenshots/Снимок экрана 2025-11-25 122212.png>)
