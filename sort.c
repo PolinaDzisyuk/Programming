@@ -23,14 +23,8 @@ void print_array(int size, int array[size]) {
 
 int main() {
 
-    int array[N] = {6, -5, 3, 77, 4};
-    print_array(N, array);
-
-    bubble_sort(N, array);
-
-    print_array(N, array);
-
-    return 0;
+   int a[] = {4, 2, 7, 26};
+   bubble_sort(N, a);
 }
 #hello git
 #hello world
