@@ -1,5 +1,4 @@
 #include "lb10.h"
-#include "lb_10_func.c"
 
 int main(void) {
     struct triangle *ptr1 = malloc(sizeof(struct triangle));

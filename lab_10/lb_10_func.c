@@ -1,16 +1,12 @@
-// struct triangle fill_struct(int a, int b, int c) {
-//     struct triangle new;
-//     new.a = a;
-//     new.b = b;
-//     new.c = c;
-//     return new;
-// }
+#include "lb10.h"
 
-// double find_area(struct triangle x) {
-//     double p = (x.a + x.b + x.c) / 2.0;
-//     double s = sqrt(p * (p - x.a) * (p - x.b) * (p - x.c));
-//     return s;
-// }
+struct triangle fill_struct_3(int a, int b, int c) {
+    struct triangle new;
+    new.a = a;
+    new.b = b;
+    new.c = c;
+    return new;
+}
 
 void fill_struct(struct triangle *ptr) {
     int a;
