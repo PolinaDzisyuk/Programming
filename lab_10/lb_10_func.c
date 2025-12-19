@@ -27,24 +27,11 @@ double calculate_area(struct triangle x) {
     return s;
 }
 
-double find_area(double area1, double area2, double area3){
-    double max_area = 0.0;
-    if (area1 > max_area){
-        max_area = area1;
-        if (area2 > max_area){
-            max_area = area2;
-            if (area3 > max_area){
-                max_area = area3;
-            }
-        }
-    }
-    if (max_area == area1){
-        printf("Наибольшая площадь у треугольника t\n");
-        if (max_area == area2){
-            printf("Наибольшая площадь у треугольника y\n");
-            if (max_area == area3){
-                printf("Наибольшая площадь у треугольника u\nS");
-            }
+double find_area(double area[], int size){
+    double max_area = area[0];
+    for (int i = 0; i < 3; i++){
+        if (area[i] > max_area) {
+            max_area = area[i];
         }
     }
     return max_area;
