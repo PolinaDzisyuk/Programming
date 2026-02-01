@@ -1,3 +1,0 @@
-[submodule "submodule/sort"]
-	path = submodule/sort
-	url = https://github.com/swenson/sort.git
