@@ -1,0 +1,6 @@
+[submodule "Go/makego"]
+	path = Go/makego
+	url = https://github.com/bufbuild/makego
+[submodule "Go/proj/color"]
+	path = Go/proj/color
+	url = https://github.com/fatih/color

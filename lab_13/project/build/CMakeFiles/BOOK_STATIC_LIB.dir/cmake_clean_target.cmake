@@ -1,0 +1,3 @@
+file(REMOVE_RECURSE
+  "libBOOK_STATIC_LIB.a"
+)

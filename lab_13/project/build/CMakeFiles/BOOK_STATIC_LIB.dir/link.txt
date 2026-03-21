@@ -1,0 +1,2 @@
+/usr/bin/ar qc libBOOK_STATIC_LIB.a CMakeFiles/BOOK_STATIC_LIB.dir/src/book_func.c.o
+/usr/bin/ranlib libBOOK_STATIC_LIB.a

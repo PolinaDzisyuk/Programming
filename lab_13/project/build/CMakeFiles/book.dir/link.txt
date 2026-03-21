@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/book.dir/src/main.c.o -o book  -Wl,-rpath,/home/pdzisyuk/programming/Programming/lab_13/project/build -lBOOK_STATIC_LIB libBOOK_LIB.so 

@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libBOOK_LIB.so -o libBOOK_LIB.so CMakeFiles/BOOK_LIB.dir/src/book_func.c.o 
