@@ -11,6 +11,7 @@ struct book {
     char author[128];
     int pages;
     int year;
+    int index;
 };
 
 struct node {
@@ -19,7 +20,7 @@ struct node {
     struct node *next;
 };
 
-struct book fill_struct(const char *arr_names[], const char *arr_authors[]) {
+struct book fill_struct() {
     struct book new;
     int year;
     int name_index = rand() % 6;
@@ -35,42 +36,67 @@ struct book fill_struct(const char *arr_names[], const char *arr_authors[]) {
 void print_struct(node_t *node) {
     node_t *cur_up = node;
     printf(" -------------------\n");
-    printf(" | Book\n |Name: %s \n |Author: %4s ->\n |Pages: %d \n |Year: %d\n", cur_up->new.name, 
+    printf(" |[%d]Book\n |Name: %s \n |Author: %4s ->\n |Pages: %d \n |Year: %d\n", cur_up->new.index, cur_up->new.name, 
     cur_up->new.author, cur_up->new.pages, cur_up->new.year);
     printf(" -------------------\n");
 }
 
-node_t *newNode(struct book new) {
-    node_t *new_node = (node_t *)malloc(sizeof(node_t));
+node_t *newNode(struct book new, int index) {
+    node_t *new_node = malloc(sizeof(node_t));
     new_node->new = new;
+    new_node->new.index = index;
     new_node->down = NULL;
     new_node->next = NULL;
 
     return new_node;
 }
 
-node_t* append(node_t* head) {
-    node_t *new_up = newNode(fill_struct(arr_names, arr_authors));
-    node_t *new_down = newNode(fill_struct(arr_names, arr_authors));
-    new_up->down = new_down;
+node_t* append(int n, int k) {
+    node_t *new_up = NULL;
+    node_t *prev_up = NULL;
+    node_t *new_down = NULL;
+    node_t *prev_down = NULL;
+    int max_len;
 
-    if (head == NULL) {
-        return new_up;
+    // if(n > k) {
+    //     max_len = n;
+    // } else {
+    //     max_len = k;
+    // }
+    node_t *up = NULL;
+    node_t *down = NULL;
+    for(int i = n; i >= 2; i-=2) { 
+            up = newNode(fill_struct(), i);
+            int index_up = i;
+            if(new_up == NULL) {
+                new_up = up;
+            }
+            if (prev_up) prev_up->next = up;
+            prev_up = up;
+    for(int j = k; j >= 1; j-=1) {
+            down = newNode(fill_struct(), i);
+            int index_down = j;
+            
+            if (new_down == NULL) {
+                new_down = down;
+            }
+            if (prev_down) {
+                prev_down->next = down; 
+            }
+            prev_down = down;             
+        }
+        if (up && down) {
+            up->down = down;
+        }
     }
-     
-    new_up->next = head;
-    if (head->down) {
-        new_down->next = head->down;
-    }
-
+        
     return new_up;
 }
 
+
 void print_list(node_t *head) {
     node_t *cur_up = head;
-    int cnt = 0;
     while (cur_up) {
-        // printf("%s -> ", cur_up->new.name);
         print_struct(cur_up);
         cur_up = cur_up->next;
     }
@@ -83,7 +109,6 @@ void print_list(node_t *head) {
         cur_down = NULL;
     }
     while (cur_down) {
-        // printf("%s -> ", cur_down->new.name);
         print_struct(cur_down);
         cur_down = cur_down->next;
     }
@@ -106,26 +131,31 @@ void free_list(node_t *node) {
 int main() {
     srand(time(NULL));
     int n;
+    int k;
     struct book new_up;
     struct book new_down;
     node_t* head = NULL;
 
-    printf("Введите количество элементов списка:");
+    printf("Введите количество элементов верхнего списка:");
     scanf("%d", &n);
     if (n <= 0) {
         return -1;
     }
 
-    for(int i = 0; i < n; i++) {
-        head = append(head);
+    printf("Введите количество элементов нижнего списка:");
+    scanf("%d", &k);
+    if (k <= 0) {
+        return -1;
     }
+        
+    head = append(n, k);
 
     print_list(head);
 
     printf("\nНажмите:\n 'd', чтобы двигаться вправо.\n 's', чтобы двигаться вниз.\n");
     node_t *list_ptr = head;
     while(list_ptr) {
-        printf("\nТЕКУЩАЯ КНИГА: %s\n", list_ptr->new.name);
+        printf("\nТЕКУЩАЯ КНИГА %d: %s\n", list_ptr->new.index, list_ptr->new.name);
         printf("\nАВТОР: %s\n", list_ptr->new.author);
         char key = ' ';
         scanf(" %c", &key);

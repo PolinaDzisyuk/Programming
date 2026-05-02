@@ -1,0 +1,7 @@
+runtest 2 0.00153128
+zero 8 0.000514784
+negative 8 0.00052177
+strong 8 0.000556671
+not_stong 7 0
+not_strong 1 0.00362262
+---

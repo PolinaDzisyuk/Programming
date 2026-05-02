@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/strong_number_tests.dir/strong_number.c.o CMakeFiles/strong_number_tests.dir/test_strong_number.c.o -o strong_number_tests  -lcmocka 
